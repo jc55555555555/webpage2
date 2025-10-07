@@ -124,10 +124,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed). # TIPOS DE DISEÑOS EXPERIMENTALES ## DCA</p>
+<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+</section>
+<section id="tipos-de-diseños-experimentales" class="level1">
+<h1>TIPOS DE DISEÑOS EXPERIMENTALES</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="dca" class="level2">
+<h2 class="anchored" data-anchor-id="dca">DCA</h2>
+<p>Factor→ dosis de fertilización nitrogenada(kg/ha) 0 - testigo 50 100 Diseño: DCA Repeticiones: 5 UE→ 3 dosis x 5 rep = 15</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tratamientos (niveles del factor)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tratamientos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"50"</span>, <span class="st">"100"</span>)  <span class="co"># Dosis de fertilización nitrogenada (kg/ha)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el diseño completamente al azar (DCA)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dca <span class="ot">&lt;-</span> <span class="fu">design.crd</span>(tratamientos, <span class="at">r =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">123</span>, <span class="at">serie =</span> <span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el diseño generado (15 unidades experimentales)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dca<span class="sc">$</span>book)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   plots r tratamientos
+1    101 1           50
+2    102 1          100
+3    103 2          100
+4    104 1            0
+5    105 2            0
+6    106 3          100
+7    107 3            0
+8    108 4            0
+9    109 2           50
+10   110 3           50
+11   111 4           50
+12   112 4          100
+13   113 5           50
+14   114 5          100
+15   115 5            0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización del diseño</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bar.group</span>(dca<span class="sc">$</span>book, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"Diseño Completamente al Azar - Dosis de Nitrógeno"</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Tratamientos"</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Repeticiones"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="dbca" class="level2">
 <h2 class="anchored" data-anchor-id="dbca">DBCA</h2>
+<p>tor 1 → dosis de fertilización nitrogenada (Kg/ha) Factor 2 → cultivares papa per uanita can chan Dis eño: DBCA Rep eticiones: 4 UE →3 dosis x 2 cultivos x 4 rep = 24</p>
+<p>```</p>
+</section>
 </section>
 
 </main>

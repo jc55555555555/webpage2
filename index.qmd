@@ -24,7 +24,56 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
 # TIPOS DE DISEÑOS EXPERIMENTALES 
+
+```{r}
+library(agricolae)
+```
+
 ## DCA
 
+Factor→ dosis de fertilización nitrogenada(kg/ha)
+0 - testigo
+50
+100
+Diseño: DCA
+Repeticiones: 5
+UE→ 3 dosis x 5 rep = 15
+
+```{r}
+# tratamientos (niveles del factor)
+tratamientos <- c("0", "50", "100")  # Dosis de fertilización nitrogenada (kg/ha)
+
+# Crear el diseño completamente al azar (DCA)
+dca <- design.crd(tratamientos, r = 5, seed = 123, serie = 2)
+
+# Mostrar el diseño generado (15 unidades experimentales)
+print(dca$book)
+
+# Visualización del diseño
+bar.group(dca$book, 
+          main = "Diseño Completamente al Azar - Dosis de Nitrógeno", 
+          xlab = "Tratamientos", 
+          ylab = "Repeticiones")
+```
+
 ## DBCA
+
+tor 1 → dosis de fertilización nitrogenada (Kg/ha)
+Factor 2 → cultivares papa
+per uanita
+can chan
+Dis eño: DBCA
+Rep eticiones: 4
+UE →3 dosis x 2 cultivos x 4 rep = 24
+
+
+
+````{r}
+
+```
+
+
+
+
